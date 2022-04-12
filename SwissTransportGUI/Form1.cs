@@ -67,7 +67,7 @@ namespace SwissTransportGUI
 
                 List<CustomDepartureConnection> connectionList = new List<CustomDepartureConnection>();
                 connectionList.Clear();
-                
+
                 foreach (StationBoard stationBoard in stationBoardRoot.Entries)
                 {
                     string time = stationBoard.Stop.Departure.ToString();
@@ -76,9 +76,24 @@ namespace SwissTransportGUI
                     connectionList.Add(customDepartureConnection);
                 }
                 departureBoardDataGridView.DataSource = connectionList;
-            } else
+            }
+            else
             {
                 MessageBox.Show("Bitte geben Sie eine valide Station ein!");
+            }
+        }
+
+        public string homeStation = "";
+
+        private void TakeMeHomeButtonClick(object sender, EventArgs e)
+        {
+            if (homeStation != "")
+            {
+                destinationComboBox.Text = homeStation;
+            }
+            else
+            {
+                homeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
             }
         }
     }

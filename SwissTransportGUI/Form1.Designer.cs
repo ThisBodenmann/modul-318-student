@@ -43,6 +43,8 @@
             this.departureBoardComboBox = new System.Windows.Forms.ComboBox();
             this.departureBoardSearchButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.takeMeHomeGroupBox = new System.Windows.Forms.GroupBox();
+            this.takeMeHomeButton = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.departureGroupBox.SuspendLayout();
@@ -52,6 +54,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.takeMeHomeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -70,6 +73,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.takeMeHomeGroupBox);
             this.tabPage1.Controls.Add(this.departureGroupBox);
             this.tabPage1.Controls.Add(this.searchGroupBox);
             this.tabPage1.Location = new System.Drawing.Point(12, 69);
@@ -212,6 +216,26 @@
             this.tabPage3.Text = "Stationenkarte";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // takeMeHomeGroupBox
+            // 
+            this.takeMeHomeGroupBox.Controls.Add(this.takeMeHomeButton);
+            this.takeMeHomeGroupBox.Location = new System.Drawing.Point(1556, 60);
+            this.takeMeHomeGroupBox.Name = "takeMeHomeGroupBox";
+            this.takeMeHomeGroupBox.Size = new System.Drawing.Size(351, 192);
+            this.takeMeHomeGroupBox.TabIndex = 6;
+            this.takeMeHomeGroupBox.TabStop = false;
+            this.takeMeHomeGroupBox.Text = "TakeMeHome";
+            // 
+            // takeMeHomeButton
+            // 
+            this.takeMeHomeButton.Location = new System.Drawing.Point(25, 71);
+            this.takeMeHomeButton.Name = "takeMeHomeButton";
+            this.takeMeHomeButton.Size = new System.Drawing.Size(300, 72);
+            this.takeMeHomeButton.TabIndex = 0;
+            this.takeMeHomeButton.Text = "TakeMeHome";
+            this.takeMeHomeButton.UseVisualStyleBackColor = true;
+            this.takeMeHomeButton.Click += new System.EventHandler(this.TakeMeHomeButtonClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
@@ -229,6 +253,7 @@
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.takeMeHomeGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -250,5 +275,7 @@
         private Button departureBoardSearchButton;
         private GroupBox groupBox2;
         private DataGridView departureBoardDataGridView;
+        private GroupBox takeMeHomeGroupBox;
+        private Button takeMeHomeButton;
     }
 }

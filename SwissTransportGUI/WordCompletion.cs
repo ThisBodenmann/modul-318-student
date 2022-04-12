@@ -40,7 +40,7 @@ namespace SwissTransportGUI
                     startComboBox.DroppedDown = false;
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Error in WordCompletion: " + ex); }
+            catch { }
         }
     }
 }
