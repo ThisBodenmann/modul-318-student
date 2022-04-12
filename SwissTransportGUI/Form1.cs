@@ -45,8 +45,6 @@ namespace SwissTransportGUI
             {
                 MessageBox.Show("Bitte geben Sie beide Stationen an!");
             }
-
-
         }
 
         private void ComboBoxKeyUp(object sender, KeyEventArgs e)
@@ -58,7 +56,7 @@ namespace SwissTransportGUI
             }
         }
 
-        private void departureBoardSearchButtonClick(object sender, EventArgs e)
+        private void DepartureBoardSearchButtonClick(object sender, EventArgs e)
         {
             Stations startStation = transport.GetStations(departureBoardComboBox.Text);
             if (startStation.StationList.Count != 0 && departureBoardComboBox.Text != "")
@@ -94,6 +92,36 @@ namespace SwissTransportGUI
             else
             {
                 homeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
+            }
+        }
+
+        private void stationSearchButtonClick(object sender, EventArgs e)
+        {
+            if (searchStationComboBox.Text != null)
+            {
+                Stations possibleStations = transport.GetStations(searchStationComboBox.Text);
+
+                if (possibleStations.StationList.Count != 0)
+                {
+
+                    List<PossibleStation> connectionList = new List<PossibleStation>();
+                    connectionList.Clear();
+
+                    foreach (Station possibleStation in possibleStations.StationList)
+                    {
+                        PossibleStation station = new PossibleStation(possibleStation.Id, possibleStation.Name);
+                        connectionList.Add(station);
+                    }
+                    departureBoardDataGridView.DataSource = connectionList;
+                }
+                else
+                {
+                    MessageBox.Show("Bitte geben Sie eine valide Station ein!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben Sie beide Stationen an!");
             }
         }
     }

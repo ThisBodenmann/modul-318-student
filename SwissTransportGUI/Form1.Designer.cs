@@ -30,6 +30,12 @@
         {
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dateGroupBox = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.timeGroupBox = new System.Windows.Forms.GroupBox();
+            this.timeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.takeMeHomeGroupBox = new System.Windows.Forms.GroupBox();
+            this.takeMeHomeButton = new System.Windows.Forms.Button();
             this.departureGroupBox = new System.Windows.Forms.GroupBox();
             this.connectionsDataGridView = new System.Windows.Forms.DataGridView();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
@@ -37,24 +43,33 @@
             this.startComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.stationSearchGroupBox = new System.Windows.Forms.GroupBox();
+            this.searchStationComboBox = new System.Windows.Forms.ComboBox();
+            this.stationSearchButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.departureBoardDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.departureBoardComboBox = new System.Windows.Forms.ComboBox();
             this.departureBoardSearchButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.takeMeHomeGroupBox = new System.Windows.Forms.GroupBox();
-            this.takeMeHomeButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.stationCardSearchButton = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.dateGroupBox.SuspendLayout();
+            this.timeGroupBox.SuspendLayout();
+            this.takeMeHomeGroupBox.SuspendLayout();
             this.departureGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).BeginInit();
             this.searchGroupBox.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.stationSearchGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.takeMeHomeGroupBox.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -68,21 +83,81 @@
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(2016, 1054);
+            this.mainTabControl.Size = new System.Drawing.Size(2225, 1054);
             this.mainTabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dateGroupBox);
+            this.tabPage1.Controls.Add(this.timeGroupBox);
             this.tabPage1.Controls.Add(this.takeMeHomeGroupBox);
             this.tabPage1.Controls.Add(this.departureGroupBox);
             this.tabPage1.Controls.Add(this.searchGroupBox);
             this.tabPage1.Location = new System.Drawing.Point(12, 69);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1992, 973);
+            this.tabPage1.Size = new System.Drawing.Size(2201, 973);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Verbindungen";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dateGroupBox
+            // 
+            this.dateGroupBox.Controls.Add(this.dateTimePicker);
+            this.dateGroupBox.Location = new System.Drawing.Point(1556, 615);
+            this.dateGroupBox.Name = "dateGroupBox";
+            this.dateGroupBox.Size = new System.Drawing.Size(623, 300);
+            this.dateGroupBox.TabIndex = 8;
+            this.dateGroupBox.TabStop = false;
+            this.dateGroupBox.Text = "Datum eingeben";
+            // 
+            // dateTimePicker
+            // 
+            this.dateTimePicker.Location = new System.Drawing.Point(15, 117);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(588, 55);
+            this.dateTimePicker.TabIndex = 0;
+            // 
+            // timeGroupBox
+            // 
+            this.timeGroupBox.Controls.Add(this.timeDateTimePicker);
+            this.timeGroupBox.Location = new System.Drawing.Point(1545, 315);
+            this.timeGroupBox.Name = "timeGroupBox";
+            this.timeGroupBox.Size = new System.Drawing.Size(634, 290);
+            this.timeGroupBox.TabIndex = 7;
+            this.timeGroupBox.TabStop = false;
+            this.timeGroupBox.Text = "Uhrzeit eingeben";
+            // 
+            // timeDateTimePicker
+            // 
+            this.timeDateTimePicker.Checked = false;
+            this.timeDateTimePicker.CustomFormat = "HH:mm";
+            this.timeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeDateTimePicker.Location = new System.Drawing.Point(26, 106);
+            this.timeDateTimePicker.Name = "timeDateTimePicker";
+            this.timeDateTimePicker.ShowUpDown = true;
+            this.timeDateTimePicker.Size = new System.Drawing.Size(588, 55);
+            this.timeDateTimePicker.TabIndex = 1;
+            // 
+            // takeMeHomeGroupBox
+            // 
+            this.takeMeHomeGroupBox.Controls.Add(this.takeMeHomeButton);
+            this.takeMeHomeGroupBox.Location = new System.Drawing.Point(1556, 60);
+            this.takeMeHomeGroupBox.Name = "takeMeHomeGroupBox";
+            this.takeMeHomeGroupBox.Size = new System.Drawing.Size(351, 192);
+            this.takeMeHomeGroupBox.TabIndex = 6;
+            this.takeMeHomeGroupBox.TabStop = false;
+            this.takeMeHomeGroupBox.Text = "TakeMeHome";
+            // 
+            // takeMeHomeButton
+            // 
+            this.takeMeHomeButton.Location = new System.Drawing.Point(25, 71);
+            this.takeMeHomeButton.Name = "takeMeHomeButton";
+            this.takeMeHomeButton.Size = new System.Drawing.Size(300, 72);
+            this.takeMeHomeButton.TabIndex = 0;
+            this.takeMeHomeButton.Text = "TakeMeHome";
+            this.takeMeHomeButton.UseVisualStyleBackColor = true;
+            this.takeMeHomeButton.Click += new System.EventHandler(this.TakeMeHomeButtonClick);
             // 
             // departureGroupBox
             // 
@@ -146,15 +221,46 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.stationSearchGroupBox);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(12, 69);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1992, 973);
+            this.tabPage2.Size = new System.Drawing.Size(2201, 973);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Abfahrtstafel";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // stationSearchGroupBox
+            // 
+            this.stationSearchGroupBox.Controls.Add(this.searchStationComboBox);
+            this.stationSearchGroupBox.Controls.Add(this.stationSearchButton);
+            this.stationSearchGroupBox.Location = new System.Drawing.Point(1081, 60);
+            this.stationSearchGroupBox.Name = "stationSearchGroupBox";
+            this.stationSearchGroupBox.Size = new System.Drawing.Size(953, 188);
+            this.stationSearchGroupBox.TabIndex = 7;
+            this.stationSearchGroupBox.TabStop = false;
+            this.stationSearchGroupBox.Text = "Station suchen";
+            // 
+            // searchStationComboBox
+            // 
+            this.searchStationComboBox.FormattingEnabled = true;
+            this.searchStationComboBox.Location = new System.Drawing.Point(23, 80);
+            this.searchStationComboBox.Name = "searchStationComboBox";
+            this.searchStationComboBox.Size = new System.Drawing.Size(400, 56);
+            this.searchStationComboBox.TabIndex = 6;
+            this.searchStationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
+            // 
+            // stationSearchButton
+            // 
+            this.stationSearchButton.Location = new System.Drawing.Point(579, 71);
+            this.stationSearchButton.Name = "stationSearchButton";
+            this.stationSearchButton.Size = new System.Drawing.Size(300, 72);
+            this.stationSearchButton.TabIndex = 2;
+            this.stationSearchButton.Text = "Suchen";
+            this.stationSearchButton.UseVisualStyleBackColor = true;
+            this.stationSearchButton.Click += new System.EventHandler(this.stationSearchButtonClick);
             // 
             // groupBox2
             // 
@@ -164,7 +270,7 @@
             this.groupBox2.Size = new System.Drawing.Size(1500, 600);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Abfahrtstafel";
+            this.groupBox2.Text = "Abfahrtstafel / Stationssuche";
             // 
             // departureBoardDataGridView
             // 
@@ -204,56 +310,70 @@
             this.departureBoardSearchButton.TabIndex = 2;
             this.departureBoardSearchButton.Text = "Suchen";
             this.departureBoardSearchButton.UseVisualStyleBackColor = true;
-            this.departureBoardSearchButton.Click += new System.EventHandler(this.departureBoardSearchButtonClick);
+            this.departureBoardSearchButton.Click += new System.EventHandler(this.DepartureBoardSearchButtonClick);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Location = new System.Drawing.Point(12, 69);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1992, 973);
+            this.tabPage3.Size = new System.Drawing.Size(2201, 973);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Stationenkarte";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // takeMeHomeGroupBox
+            // groupBox3
             // 
-            this.takeMeHomeGroupBox.Controls.Add(this.takeMeHomeButton);
-            this.takeMeHomeGroupBox.Location = new System.Drawing.Point(1556, 60);
-            this.takeMeHomeGroupBox.Name = "takeMeHomeGroupBox";
-            this.takeMeHomeGroupBox.Size = new System.Drawing.Size(351, 192);
-            this.takeMeHomeGroupBox.TabIndex = 6;
-            this.takeMeHomeGroupBox.TabStop = false;
-            this.takeMeHomeGroupBox.Text = "TakeMeHome";
+            this.groupBox3.Controls.Add(this.comboBox2);
+            this.groupBox3.Controls.Add(this.stationCardSearchButton);
+            this.groupBox3.Location = new System.Drawing.Point(19, 60);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(930, 192);
+            this.groupBox3.TabIndex = 5;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Suche eingeben";
             // 
-            // takeMeHomeButton
+            // comboBox2
             // 
-            this.takeMeHomeButton.Location = new System.Drawing.Point(25, 71);
-            this.takeMeHomeButton.Name = "takeMeHomeButton";
-            this.takeMeHomeButton.Size = new System.Drawing.Size(300, 72);
-            this.takeMeHomeButton.TabIndex = 0;
-            this.takeMeHomeButton.Text = "TakeMeHome";
-            this.takeMeHomeButton.UseVisualStyleBackColor = true;
-            this.takeMeHomeButton.Click += new System.EventHandler(this.TakeMeHomeButtonClick);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(23, 80);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(400, 56);
+            this.comboBox2.TabIndex = 6;
+            // 
+            // stationCardSearchButton
+            // 
+            this.stationCardSearchButton.Location = new System.Drawing.Point(579, 71);
+            this.stationCardSearchButton.Name = "stationCardSearchButton";
+            this.stationCardSearchButton.Size = new System.Drawing.Size(300, 72);
+            this.stationCardSearchButton.TabIndex = 2;
+            this.stationCardSearchButton.Text = "Suchen";
+            this.stationCardSearchButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2028, 1066);
+            this.ClientSize = new System.Drawing.Size(2237, 1066);
             this.Controls.Add(this.mainTabControl);
             this.Name = "Form1";
             this.Text = "Form1";
             this.mainTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.dateGroupBox.ResumeLayout(false);
+            this.timeGroupBox.ResumeLayout(false);
+            this.takeMeHomeGroupBox.ResumeLayout(false);
             this.departureGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).EndInit();
             this.searchGroupBox.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.stationSearchGroupBox.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.takeMeHomeGroupBox.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -277,5 +397,15 @@
         private DataGridView departureBoardDataGridView;
         private GroupBox takeMeHomeGroupBox;
         private Button takeMeHomeButton;
+        private GroupBox timeGroupBox;
+        private DateTimePicker dateTimePicker;
+        private GroupBox dateGroupBox;
+        private GroupBox groupBox3;
+        private ComboBox comboBox2;
+        private Button stationCardSearchButton;
+        private DateTimePicker timeDateTimePicker;
+        private GroupBox stationSearchGroupBox;
+        private ComboBox searchStationComboBox;
+        private Button stationSearchButton;
     }
 }

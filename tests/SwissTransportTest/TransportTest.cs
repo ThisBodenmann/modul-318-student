@@ -4,6 +4,7 @@
     using SwissTransport.Core;
     using SwissTransport.Models;
     using Xunit;
+    using System;
 
     public class TransportTest
     {
@@ -33,7 +34,7 @@
         [Fact]
         public void Connections()
         {
-            Connections connections = this.testee.GetConnections("Sursee", "Luzern");
+            Connections connections = this.testee.GetConnections("Sursee", "Luzern", 1, );
 
             connections.Should().NotBeNull();
         }
