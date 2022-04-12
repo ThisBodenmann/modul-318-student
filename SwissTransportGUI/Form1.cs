@@ -10,22 +10,22 @@ namespace SwissTransportGUI
             InitializeComponent();
         }
 
-        private void searchButtonClick(object sender, EventArgs e)
+        private void SearchButtonClick(object sender, EventArgs e)
         {
             Transport transport = new Transport();
 
-            if (startTextBox.Text != null && destinationTextBox.Text != null)
+            if (startComboBox.Text != null && destinationComboBox.Text != null)
             {
-                Stations possibleStationsStart = transport.GetStations(startTextBox.Text);
-                Stations possibleStationsDestination = transport.GetStations(destinationTextBox.Text);
+                Stations possibleStationsStart = transport.GetStations(startComboBox.Text);
+                Stations possibleStationsDestination = transport.GetStations(destinationComboBox.Text);
 
                 if (possibleStationsStart.StationList.Count != 0 && possibleStationsDestination.StationList.Count != 0)
                 {
-                    Connections possibleConnections = transport.GetConnections(startTextBox.Text, destinationTextBox.Text);
+                    Connections possibleConnections = transport.GetConnections(startComboBox.Text, destinationComboBox.Text);
 
                     List<CustomConnection> connectionList = new List<CustomConnection>();
                     connectionList.Clear();
-                    
+
                     foreach (Connection possibleConnection in possibleConnections.ConnectionList)
                     {
                         string time = possibleConnection.From.Departure.ToString()!;
@@ -47,6 +47,14 @@ namespace SwissTransportGUI
             }
 
 
+        }
+        private void ComboBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up && e.KeyCode != Keys.Enter && e.KeyCode != Keys.Escape)
+            {
+                var startCombobox = (ComboBox)sender;
+                WordCompletion.AddSuggestions(startCombobox);
+            }
         }
     }
 }
