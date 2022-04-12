@@ -33,16 +33,25 @@
             this.departureGroupBox = new System.Windows.Forms.GroupBox();
             this.connectionsDataGridView = new System.Windows.Forms.DataGridView();
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
+            this.destinationComboBox = new System.Windows.Forms.ComboBox();
             this.startComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.departureBoardDataGridView = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.departureBoardComboBox = new System.Windows.Forms.ComboBox();
+            this.departureBoardSearchButton = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.destinationComboBox = new System.Windows.Forms.ComboBox();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.departureGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).BeginInit();
             this.searchGroupBox.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -103,6 +112,15 @@
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Suche eingeben";
             // 
+            // destinationComboBox
+            // 
+            this.destinationComboBox.FormattingEnabled = true;
+            this.destinationComboBox.Location = new System.Drawing.Point(1055, 80);
+            this.destinationComboBox.Name = "destinationComboBox";
+            this.destinationComboBox.Size = new System.Drawing.Size(400, 56);
+            this.destinationComboBox.TabIndex = 7;
+            this.destinationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
+            // 
             // startComboBox
             // 
             this.startComboBox.FormattingEnabled = true;
@@ -110,7 +128,7 @@
             this.startComboBox.Name = "startComboBox";
             this.startComboBox.Size = new System.Drawing.Size(400, 56);
             this.startComboBox.TabIndex = 6;
-            this.startComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBox_KeyUp);
+            this.startComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
             // 
             // searchButton
             // 
@@ -124,6 +142,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(12, 69);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -131,6 +151,56 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Abfahrtstafel";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.departureBoardDataGridView);
+            this.groupBox2.Location = new System.Drawing.Point(19, 315);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1500, 600);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Abfahrtstafel";
+            // 
+            // departureBoardDataGridView
+            // 
+            this.departureBoardDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.departureBoardDataGridView.Location = new System.Drawing.Point(55, 106);
+            this.departureBoardDataGridView.Name = "departureBoardDataGridView";
+            this.departureBoardDataGridView.RowHeadersWidth = 123;
+            this.departureBoardDataGridView.RowTemplate.Height = 57;
+            this.departureBoardDataGridView.Size = new System.Drawing.Size(1400, 388);
+            this.departureBoardDataGridView.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.departureBoardComboBox);
+            this.groupBox1.Controls.Add(this.departureBoardSearchButton);
+            this.groupBox1.Location = new System.Drawing.Point(19, 60);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(953, 188);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Suche eingeben";
+            // 
+            // departureBoardComboBox
+            // 
+            this.departureBoardComboBox.FormattingEnabled = true;
+            this.departureBoardComboBox.Location = new System.Drawing.Point(23, 80);
+            this.departureBoardComboBox.Name = "departureBoardComboBox";
+            this.departureBoardComboBox.Size = new System.Drawing.Size(400, 56);
+            this.departureBoardComboBox.TabIndex = 6;
+            this.departureBoardComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
+            // 
+            // departureBoardSearchButton
+            // 
+            this.departureBoardSearchButton.Location = new System.Drawing.Point(579, 71);
+            this.departureBoardSearchButton.Name = "departureBoardSearchButton";
+            this.departureBoardSearchButton.Size = new System.Drawing.Size(300, 72);
+            this.departureBoardSearchButton.TabIndex = 2;
+            this.departureBoardSearchButton.Text = "Suchen";
+            this.departureBoardSearchButton.UseVisualStyleBackColor = true;
+            this.departureBoardSearchButton.Click += new System.EventHandler(this.departureBoardSearchButtonClick);
             // 
             // tabPage3
             // 
@@ -141,15 +211,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Stationenkarte";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // destinationComboBox
-            // 
-            this.destinationComboBox.FormattingEnabled = true;
-            this.destinationComboBox.Location = new System.Drawing.Point(1055, 80);
-            this.destinationComboBox.Name = "destinationComboBox";
-            this.destinationComboBox.Size = new System.Drawing.Size(400, 56);
-            this.destinationComboBox.TabIndex = 7;
-            this.destinationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBox_KeyUp);
             // 
             // Form1
             // 
@@ -164,6 +225,10 @@
             this.departureGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.connectionsDataGridView)).EndInit();
             this.searchGroupBox.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -180,5 +245,10 @@
         private DataGridView connectionsDataGridView;
         private ComboBox startComboBox;
         private ComboBox destinationComboBox;
+        private GroupBox groupBox1;
+        private ComboBox departureBoardComboBox;
+        private Button departureBoardSearchButton;
+        private GroupBox groupBox2;
+        private DataGridView departureBoardDataGridView;
     }
 }

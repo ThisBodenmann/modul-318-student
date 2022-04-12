@@ -10,10 +10,10 @@ namespace SwissTransportGUI
             InitializeComponent();
         }
 
+        Transport transport = new Transport();
+
         private void SearchButtonClick(object sender, EventArgs e)
         {
-            Transport transport = new Transport();
-
             if (startComboBox.Text != null && destinationComboBox.Text != null)
             {
                 Stations possibleStationsStart = transport.GetStations(startComboBox.Text);
@@ -48,12 +48,37 @@ namespace SwissTransportGUI
 
 
         }
-        private void ComboBox_KeyUp(object sender, KeyEventArgs e)
+
+        private void ComboBoxKeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up && e.KeyCode != Keys.Enter && e.KeyCode != Keys.Escape)
             {
                 var startCombobox = (ComboBox)sender;
                 WordCompletion.AddSuggestions(startCombobox);
+            }
+        }
+
+        private void departureBoardSearchButtonClick(object sender, EventArgs e)
+        {
+            Stations startStation = transport.GetStations(departureBoardComboBox.Text);
+            if (startStation.StationList.Count != 0 && departureBoardComboBox.Text != "")
+            {
+                StationBoardRoot stationBoardRoot = transport.GetStationBoard(departureBoardComboBox.Text, "0");
+
+                List<CustomDepartureConnection> connectionList = new List<CustomDepartureConnection>();
+                connectionList.Clear();
+                
+                foreach (StationBoard stationBoard in stationBoardRoot.Entries)
+                {
+                    string time = stationBoard.Stop.Departure.ToString();
+                    string[] departureTime = time.Split(' ').ToArray();
+                    CustomDepartureConnection customDepartureConnection = new CustomDepartureConnection(stationBoard.To, departureTime[0], departureTime[1], stationBoard.Number, stationBoard.Operator);
+                    connectionList.Add(customDepartureConnection);
+                }
+                departureBoardDataGridView.DataSource = connectionList;
+            } else
+            {
+                MessageBox.Show("Bitte geben Sie eine valide Station ein!");
             }
         }
     }
