@@ -21,7 +21,7 @@ namespace SwissTransportGUI
 
                 if (possibleStationsStart.StationList.Count != 0 && possibleStationsDestination.StationList.Count != 0)
                 {
-                    Connections possibleConnections = transport.GetConnections(startComboBox.Text, destinationComboBox.Text, 4, dateTimePicker.Value, timeDateTimePicker.Value);
+                    Connections possibleConnections = transport.GetConnections(startComboBox.Text, destinationComboBox.Text, Convert.ToInt32(resultNumericUpDown.Value), dateTimePicker.Value, timeDateTimePicker.Value);
 
                     List<CustomConnection> connectionList = new List<CustomConnection>();
                     connectionList.Clear();
