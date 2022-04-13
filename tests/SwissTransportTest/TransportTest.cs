@@ -3,8 +3,8 @@
     using FluentAssertions;
     using SwissTransport.Core;
     using SwissTransport.Models;
-    using Xunit;
     using System;
+    using Xunit;
 
     public class TransportTest
     {
@@ -34,7 +34,7 @@
         [Fact]
         public void Connections()
         {
-            Connections connections = this.testee.GetConnections("Sursee", "Luzern", 1, );
+            Connections connections = this.testee.GetConnections("Sursee", "Luzern", 4, DateTime.Now.Date, Convert.ToDateTime(DateTime.Now.ToString("h:mm:ss tt")));
 
             connections.Should().NotBeNull();
         }
