@@ -1,5 +1,6 @@
 using SwissTransport.Core;
 using SwissTransport.Models;
+using System.Diagnostics;
 
 namespace SwissTransportGUI
 {
@@ -122,6 +123,23 @@ namespace SwissTransportGUI
             else
             {
                 MessageBox.Show("Bitte geben Sie beide Stationen an!");
+            }
+        }
+
+        private void distanceSearchButtonClick(object sender, EventArgs e)
+        {
+            
+        }
+        private void mapShowButtonClick(object sender, EventArgs e)
+        {
+            if (departureBoardComboBox.Text != "")
+            {
+                Station station = transport.GetStations(departureBoardComboBox.Text).StationList.First();
+                Process.Start(new ProcessStartInfo { FileName = @"https://www.google.com/maps/search/?api=1&query=" + station.Coordinate.XCoordinate.ToString()!.Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString()!.Replace(",", "."), UseShellExecute = true });
+            }
+            else
+            {
+                MessageBox.Show("Bitte geben Sie eine valide Station an!");
             }
         }
     }
