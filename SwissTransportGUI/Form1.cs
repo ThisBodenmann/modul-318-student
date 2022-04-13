@@ -112,7 +112,7 @@ namespace SwissTransportGUI
                         PossibleStation station = new PossibleStation(possibleStation.Id, possibleStation.Name);
                         connectionList.Add(station);
                     }
-                    departureBoardDataGridView.DataSource = connectionList;
+                    stationDataGridView.DataSource = connectionList;
                 }
                 else
                 {
