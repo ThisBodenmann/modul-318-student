@@ -16,7 +16,14 @@ namespace SwissTransportGUI
         List<CustomConnection> emailList = new List<CustomConnection>();
         public string DepartureStation = "";
         public string ArrivalStation = "";
+        public string HomeStation = "";
 
+        private void FormLoad(object sender, EventArgs e)
+        {
+            UpdateComboBox(null!, null!);
+        }
+
+        //----- ButtonClicks
         private void SearchButtonClick(object sender, EventArgs e)
         {
             if (destinationComboBox.Text != null && startComboBox.Text != null)
@@ -55,15 +62,6 @@ namespace SwissTransportGUI
             }
         }
 
-        private void ComboBoxKeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up && e.KeyCode != Keys.Enter && e.KeyCode != Keys.Escape)
-            {
-                var startCombobox = (ComboBox)sender;
-                WordCompletion.AddSuggestions(startCombobox);
-            }
-        }
-
         private void DepartureBoardSearchButtonClick(object sender, EventArgs e)
         {
             Stations startStation = transport.GetStations(departureBoardComboBox.Text);
@@ -89,19 +87,26 @@ namespace SwissTransportGUI
             }
         }
 
-        public string homeStation = "";
-
         private void TakeMeHomeButtonClick(object sender, EventArgs e)
         {
-            if (homeStation == "")
+            if (HomeStation == "")
             {
-                homeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
+                HomeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
 
             }
-            destinationComboBox.Text = homeStation;
+            destinationComboBox.Text = HomeStation;
         }
 
-        private void stationSearchButtonClick(object sender, EventArgs e)
+        private void ComboBoxKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Down && e.KeyCode != Keys.Up && e.KeyCode != Keys.Enter && e.KeyCode != Keys.Escape)
+            {
+                var startCombobox = (ComboBox)sender;
+                WordCompletion.AddSuggestions(startCombobox);
+            }
+        }
+
+        private void StationSearchButtonClick(object sender, EventArgs e)
         {
             if (searchStationComboBox.Text != null)
             {
@@ -131,7 +136,7 @@ namespace SwissTransportGUI
             }
         }
 
-        private void mapShowButtonClick(object sender, EventArgs e)
+        private void MapShowButtonClick(object sender, EventArgs e)
         {
             if (departureBoardComboBox.Text != "")
             {
@@ -152,7 +157,27 @@ namespace SwissTransportGUI
             }
         }
 
-        private void updateComboBox(object sender, EventArgs e)
+        private void ShareButtonClick(object sender, EventArgs e)
+        {
+            if (connectionsDataGridView.Rows.Count != 0)
+            {
+                string emailData = "";
+                foreach (CustomConnection customConnection in emailList)
+                {
+                    string row = DepartureStation + "|" + ArrivalStation + "|" + customConnection.Time + "|" + customConnection.DeparturePlatform + "|" + customConnection.ArrivalPlatform + "|" + customConnection.Duration + "|" + customConnection.Date + "/";
+                    emailData += row;
+                }
+
+                EmailForm form = new EmailForm(emailData);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte suchen Sie zuerst nach einer Verbindung");
+            }
+        }
+
+        private void UpdateComboBox(object sender, EventArgs e)
         {
             if (destinationComboBox.Text != "" && startComboBox.Text != "")
             {
@@ -182,12 +207,7 @@ namespace SwissTransportGUI
             }
         }
 
-        private void FormLoad(object sender, EventArgs e)
-        {
-            updateComboBox(null!, null!);
-        }
-
-        private void mainTabControlSelectedIndexChanged(object sender, EventArgs e)
+        private void MainTabControlSelectedIndexChanged(object sender, EventArgs e)
         {
             if (mainTabControl.SelectedTab == connectionTab)
             {
@@ -196,15 +216,17 @@ namespace SwissTransportGUI
                 destinationGroupBox.TabIndex = 2;
                 takeMeHomeGroupBox.TabIndex = 3;
                 amountGroupBox.TabIndex = 4;
-                timeGroupBox.TabIndex = 5;
-                dateGroupBox.TabIndex = 6;
+                shareGroupBox.TabIndex = 5;
+                timeGroupBox.TabIndex = 6;
+                dateGroupBox.TabIndex = 7;
 
                 startComboBox.TabIndex = 1;
                 destinationComboBox.TabIndex = 2;
                 takeMeHomeButton.TabIndex = 3;
                 resultNumericUpDown.TabIndex = 4;
-                timeDateTimePicker.TabIndex = 5;
-                dateTimePicker.TabIndex = 6;
+                shareButton.TabIndex = 5;
+                timeDateTimePicker.TabIndex = 6;
+                dateTimePicker.TabIndex = 7;
 
                 this.AcceptButton = searchButton;
             }
@@ -224,26 +246,6 @@ namespace SwissTransportGUI
                 searchStationComboBox.TabIndex = 1;
 
                 this.AcceptButton = stationSearchButton;
-            }
-        }
-
-        private void ShareButtonClick(object sender, EventArgs e)
-        {
-            if (connectionsDataGridView.Rows.Count != 0)
-            {
-                string emailData = "";
-                foreach (CustomConnection customConnection in emailList)
-                {
-                    string row = DepartureStation + "|" + ArrivalStation + "|" + customConnection.Time + "|" + customConnection.DeparturePlatform + "|" + customConnection.ArrivalPlatform + "|" + customConnection.Duration + "|" + customConnection.Date + "/";
-                    emailData += row;
-                }
-                
-                EmailForm form = new EmailForm(emailData);
-                form.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Bitte suchen Sie zuerst nach einer Verbindung");
             }
         }
     }

@@ -119,7 +119,7 @@
             this.emailSendButton.TabStop = false;
             this.emailSendButton.Text = "Senden";
             this.emailSendButton.UseVisualStyleBackColor = true;
-            this.emailSendButton.Click += new System.EventHandler(this.emailSendButtonClick);
+            this.emailSendButton.Click += new System.EventHandler(this.EmailSendButtonClick);
             // 
             // EmailForm
             // 

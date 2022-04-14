@@ -103,7 +103,7 @@
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(2273, 1229);
             this.mainTabControl.TabIndex = 0;
-            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControlSelectedIndexChanged);
+            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControlSelectedIndexChanged);
             // 
             // connectionTab
             // 
@@ -128,7 +128,7 @@
             this.shareGroupBox.Location = new System.Drawing.Point(1108, 258);
             this.shareGroupBox.Name = "shareGroupBox";
             this.shareGroupBox.Size = new System.Drawing.Size(411, 166);
-            this.shareGroupBox.TabIndex = 11;
+            this.shareGroupBox.TabIndex = 5;
             this.shareGroupBox.TabStop = false;
             this.shareGroupBox.Text = "Verbindung Teilen";
             // 
@@ -137,7 +137,7 @@
             this.shareButton.Location = new System.Drawing.Point(56, 64);
             this.shareButton.Name = "shareButton";
             this.shareButton.Size = new System.Drawing.Size(300, 72);
-            this.shareButton.TabIndex = 0;
+            this.shareButton.TabIndex = 5;
             this.shareButton.Text = "Teilen";
             this.shareButton.UseVisualStyleBackColor = true;
             this.shareButton.Click += new System.EventHandler(this.ShareButtonClick);
@@ -176,7 +176,7 @@
             this.dateGroupBox.Location = new System.Drawing.Point(1588, 628);
             this.dateGroupBox.Name = "dateGroupBox";
             this.dateGroupBox.Size = new System.Drawing.Size(634, 300);
-            this.dateGroupBox.TabIndex = 6;
+            this.dateGroupBox.TabIndex = 7;
             this.dateGroupBox.TabStop = false;
             this.dateGroupBox.Text = "Datum eingeben";
             // 
@@ -185,7 +185,7 @@
             this.dateTimePicker.Location = new System.Drawing.Point(15, 117);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(588, 55);
-            this.dateTimePicker.TabIndex = 6;
+            this.dateTimePicker.TabIndex = 7;
             // 
             // timeGroupBox
             // 
@@ -194,7 +194,7 @@
             this.timeGroupBox.Location = new System.Drawing.Point(1588, 308);
             this.timeGroupBox.Name = "timeGroupBox";
             this.timeGroupBox.Size = new System.Drawing.Size(634, 290);
-            this.timeGroupBox.TabIndex = 5;
+            this.timeGroupBox.TabIndex = 6;
             this.timeGroupBox.TabStop = false;
             this.timeGroupBox.Text = "Uhrzeit eingeben";
             // 
@@ -207,7 +207,7 @@
             this.timeDateTimePicker.Name = "timeDateTimePicker";
             this.timeDateTimePicker.ShowUpDown = true;
             this.timeDateTimePicker.Size = new System.Drawing.Size(588, 55);
-            this.timeDateTimePicker.TabIndex = 5;
+            this.timeDateTimePicker.TabIndex = 6;
             // 
             // takeMeHomeGroupBox
             // 
@@ -281,7 +281,7 @@
             this.destinationComboBox.Name = "destinationComboBox";
             this.destinationComboBox.Size = new System.Drawing.Size(400, 56);
             this.destinationComboBox.TabIndex = 2;
-            this.destinationComboBox.TextChanged += new System.EventHandler(this.updateComboBox);
+            this.destinationComboBox.TextChanged += new System.EventHandler(this.UpdateComboBox);
             this.destinationComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
             // 
             // startGroupBox
@@ -301,7 +301,7 @@
             this.startComboBox.Name = "startComboBox";
             this.startComboBox.Size = new System.Drawing.Size(400, 56);
             this.startComboBox.TabIndex = 1;
-            this.startComboBox.TextChanged += new System.EventHandler(this.updateComboBox);
+            this.startComboBox.TextChanged += new System.EventHandler(this.UpdateComboBox);
             this.startComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
             // 
             // searchButton
@@ -347,7 +347,7 @@
             this.mapShowButton.TabIndex = 0;
             this.mapShowButton.Text = "Karte ansehen";
             this.mapShowButton.UseVisualStyleBackColor = true;
-            this.mapShowButton.Click += new System.EventHandler(this.mapShowButtonClick);
+            this.mapShowButton.Click += new System.EventHandler(this.MapShowButtonClick);
             // 
             // groupBox2
             // 
@@ -399,7 +399,7 @@
             this.departureBoardComboBox.Name = "departureBoardComboBox";
             this.departureBoardComboBox.Size = new System.Drawing.Size(400, 56);
             this.departureBoardComboBox.TabIndex = 1;
-            this.departureBoardComboBox.TextChanged += new System.EventHandler(this.updateComboBox);
+            this.departureBoardComboBox.TextChanged += new System.EventHandler(this.UpdateComboBox);
             this.departureBoardComboBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ComboBoxKeyUp);
             // 
             // departureBoardSearchButton
@@ -454,7 +454,7 @@
             this.searchStationComboBox.Name = "searchStationComboBox";
             this.searchStationComboBox.Size = new System.Drawing.Size(400, 56);
             this.searchStationComboBox.TabIndex = 1;
-            this.searchStationComboBox.TextChanged += new System.EventHandler(this.updateComboBox);
+            this.searchStationComboBox.TextChanged += new System.EventHandler(this.UpdateComboBox);
             // 
             // stationSearchButton
             // 
@@ -465,7 +465,7 @@
             this.stationSearchButton.TabStop = false;
             this.stationSearchButton.Text = "Suchen";
             this.stationSearchButton.UseVisualStyleBackColor = true;
-            this.stationSearchButton.Click += new System.EventHandler(this.stationSearchButtonClick);
+            this.stationSearchButton.Click += new System.EventHandler(this.StationSearchButtonClick);
             // 
             // groupBox3
             // 

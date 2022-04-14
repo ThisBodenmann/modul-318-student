@@ -13,14 +13,14 @@ namespace SwissTransportGUI
 {
     public partial class EmailForm : Form
     {
-        string emailList;
+        public string EmailList;
         public EmailForm(string emailList)
         {
             InitializeComponent();
-            this.emailList = emailList;
+            this.EmailList = emailList;
         }
 
-        private void emailSendButtonClick(object sender, EventArgs e)
+        private void EmailSendButtonClick(object sender, EventArgs e)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace SwissTransportGUI
                     string subject = emailSubjectTextBox.Text;
                     string body = emailTextRichTextBox.Text + "\n\n\n";
 
-                    List<string> emailRows = emailList.Split('/').ToList();
+                    List<string> emailRows = EmailList.Split('/').ToList();
                     foreach (string emailRow in emailRows)
                     {
                         body += emailRow.Replace('|', ' ') + "\n";
@@ -52,11 +52,11 @@ namespace SwissTransportGUI
                     mail.Subject = subject;
                     mail.Body = body;
 
-                    SmtpServer.Port = 587;
                     SmtpServer.Credentials = new System.Net.NetworkCredential("SwissTranslationProjekt@gmail.com", "swisstranslation_123");
+                    SmtpServer.Port = 587;
                     SmtpServer.EnableSsl = true;
                     SmtpServer.Send(mail);
-                    MessageBox.Show("mail Send");
+                    MessageBox.Show("Email wurde gesendet!");
 
 
                     emailEnterTextBox.Text = "";
