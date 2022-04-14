@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.connectionTab = new System.Windows.Forms.TabPage();
             this.amountGroupBox = new System.Windows.Forms.GroupBox();
             this.resultNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.dateGroupBox = new System.Windows.Forms.GroupBox();
@@ -46,7 +46,7 @@
             this.startGroupBox = new System.Windows.Forms.GroupBox();
             this.startComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.departureTab = new System.Windows.Forms.TabPage();
             this.mapGroupBox = new System.Windows.Forms.GroupBox();
             this.mapShowButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -62,8 +62,10 @@
             this.stationSearchButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.stationDataGridView = new System.Windows.Forms.DataGridView();
+            this.shareGroupBox = new System.Windows.Forms.GroupBox();
+            this.shareButton = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.connectionTab.SuspendLayout();
             this.amountGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultNumericUpDown)).BeginInit();
             this.dateGroupBox.SuspendLayout();
@@ -74,7 +76,7 @@
             this.searchGroupBox.SuspendLayout();
             this.destinationGroupBox.SuspendLayout();
             this.startGroupBox.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.departureTab.SuspendLayout();
             this.mapGroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).BeginInit();
@@ -85,6 +87,7 @@
             this.stationSearchEnterGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stationDataGridView)).BeginInit();
+            this.shareGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -92,8 +95,8 @@
             this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTabControl.Controls.Add(this.tabPage1);
-            this.mainTabControl.Controls.Add(this.tabPage2);
+            this.mainTabControl.Controls.Add(this.connectionTab);
+            this.mainTabControl.Controls.Add(this.departureTab);
             this.mainTabControl.Controls.Add(this.stationSearchTab);
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
@@ -102,21 +105,22 @@
             this.mainTabControl.TabIndex = 0;
             this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControlSelectedIndexChanged);
             // 
-            // tabPage1
+            // connectionTab
             // 
-            this.tabPage1.Controls.Add(this.amountGroupBox);
-            this.tabPage1.Controls.Add(this.dateGroupBox);
-            this.tabPage1.Controls.Add(this.timeGroupBox);
-            this.tabPage1.Controls.Add(this.takeMeHomeGroupBox);
-            this.tabPage1.Controls.Add(this.departureGroupBox);
-            this.tabPage1.Controls.Add(this.searchGroupBox);
-            this.tabPage1.Location = new System.Drawing.Point(12, 69);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(2249, 1148);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Verbindungen";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.connectionTab.Controls.Add(this.shareGroupBox);
+            this.connectionTab.Controls.Add(this.amountGroupBox);
+            this.connectionTab.Controls.Add(this.dateGroupBox);
+            this.connectionTab.Controls.Add(this.timeGroupBox);
+            this.connectionTab.Controls.Add(this.takeMeHomeGroupBox);
+            this.connectionTab.Controls.Add(this.departureGroupBox);
+            this.connectionTab.Controls.Add(this.searchGroupBox);
+            this.connectionTab.Location = new System.Drawing.Point(12, 69);
+            this.connectionTab.Name = "connectionTab";
+            this.connectionTab.Padding = new System.Windows.Forms.Padding(3);
+            this.connectionTab.Size = new System.Drawing.Size(2249, 1148);
+            this.connectionTab.TabIndex = 0;
+            this.connectionTab.Text = "Verbindungen";
+            this.connectionTab.UseVisualStyleBackColor = true;
             // 
             // amountGroupBox
             // 
@@ -291,18 +295,18 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButtonClick);
             // 
-            // tabPage2
+            // departureTab
             // 
-            this.tabPage2.Controls.Add(this.mapGroupBox);
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.departureSearchGroupBox);
-            this.tabPage2.Location = new System.Drawing.Point(12, 69);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(2249, 1148);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Abfahrtstafel";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.departureTab.Controls.Add(this.mapGroupBox);
+            this.departureTab.Controls.Add(this.groupBox2);
+            this.departureTab.Controls.Add(this.departureSearchGroupBox);
+            this.departureTab.Location = new System.Drawing.Point(12, 69);
+            this.departureTab.Name = "departureTab";
+            this.departureTab.Padding = new System.Windows.Forms.Padding(3);
+            this.departureTab.Size = new System.Drawing.Size(2249, 1148);
+            this.departureTab.TabIndex = 1;
+            this.departureTab.Text = "Abfahrtstafel";
+            this.departureTab.UseVisualStyleBackColor = true;
             // 
             // mapGroupBox
             // 
@@ -465,6 +469,26 @@
             this.stationDataGridView.TabIndex = 4;
             this.stationDataGridView.TabStop = false;
             // 
+            // shareGroupBox
+            // 
+            this.shareGroupBox.Controls.Add(this.shareButton);
+            this.shareGroupBox.Location = new System.Drawing.Point(1108, 258);
+            this.shareGroupBox.Name = "shareGroupBox";
+            this.shareGroupBox.Size = new System.Drawing.Size(411, 166);
+            this.shareGroupBox.TabIndex = 11;
+            this.shareGroupBox.TabStop = false;
+            this.shareGroupBox.Text = "Teilen";
+            // 
+            // shareButton
+            // 
+            this.shareButton.Location = new System.Drawing.Point(56, 64);
+            this.shareButton.Name = "shareButton";
+            this.shareButton.Size = new System.Drawing.Size(300, 72);
+            this.shareButton.TabIndex = 0;
+            this.shareButton.Text = "Teilen";
+            this.shareButton.UseVisualStyleBackColor = true;
+            this.shareButton.Click += new System.EventHandler(this.ShareButtonClick);
+            // 
             // SwissTransport
             // 
             this.AcceptButton = this.searchButton;
@@ -478,7 +502,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormLoad);
             this.mainTabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.connectionTab.ResumeLayout(false);
             this.amountGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resultNumericUpDown)).EndInit();
             this.dateGroupBox.ResumeLayout(false);
@@ -489,7 +513,7 @@
             this.searchGroupBox.ResumeLayout(false);
             this.destinationGroupBox.ResumeLayout(false);
             this.startGroupBox.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.departureTab.ResumeLayout(false);
             this.mapGroupBox.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.departureBoardDataGridView)).EndInit();
@@ -500,6 +524,7 @@
             this.stationSearchEnterGroupBox.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stationDataGridView)).EndInit();
+            this.shareGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -507,8 +532,8 @@
         #endregion
 
         private TabControl mainTabControl;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage connectionTab;
+        private TabPage departureTab;
         private Button searchButton;
         private GroupBox searchGroupBox;
         private GroupBox departureGroupBox;
@@ -540,5 +565,7 @@
         private GroupBox departureEnterGroupBox;
         private ComboBox departureBoardComboBox;
         private GroupBox stationSearchEnterGroupBox;
+        private GroupBox shareGroupBox;
+        private Button shareButton;
     }
 }

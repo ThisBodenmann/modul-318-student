@@ -1,6 +1,7 @@
 using SwissTransport.Core;
 using SwissTransport.Models;
 using System.Diagnostics;
+using System.Net.Mail;
 
 namespace SwissTransportGUI
 {
@@ -12,6 +13,9 @@ namespace SwissTransportGUI
         }
 
         Transport transport = new Transport();
+        List<CustomConnection> emailList = new List<CustomConnection>();
+        public string DepartureStation = "";
+        public string ArrivalStation = "";
 
         private void SearchButtonClick(object sender, EventArgs e)
         {
@@ -36,6 +40,9 @@ namespace SwissTransportGUI
                         connectionList.Add(customConnection);
                     }
                     connectionsDataGridView.DataSource = connectionList;
+                    emailList = connectionList;
+                    DepartureStation = destinationComboBox.Text;
+                    ArrivalStation = startComboBox.Text;
                 }
                 else
                 {
@@ -89,7 +96,7 @@ namespace SwissTransportGUI
             if (homeStation == "")
             {
                 homeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
-                
+
             }
             destinationComboBox.Text = homeStation;
         }
@@ -182,7 +189,7 @@ namespace SwissTransportGUI
 
         private void mainTabControlSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (mainTabControl.SelectedTab == tabPage1)
+            if (mainTabControl.SelectedTab == connectionTab)
             {
                 searchGroupBox.TabIndex = 1;
                 startGroupBox.TabIndex = 1;
@@ -201,7 +208,7 @@ namespace SwissTransportGUI
 
                 this.AcceptButton = searchButton;
             }
-            else if (mainTabControl.SelectedTab == tabPage2)
+            else if (mainTabControl.SelectedTab == departureTab)
             {
                 departureSearchGroupBox.TabIndex = 1;
                 departureEnterGroupBox.TabIndex = 1;
@@ -217,6 +224,26 @@ namespace SwissTransportGUI
                 searchStationComboBox.TabIndex = 1;
 
                 this.AcceptButton = stationSearchButton;
+            }
+        }
+
+        private void ShareButtonClick(object sender, EventArgs e)
+        {
+            if (connectionsDataGridView.Rows.Count != 0)
+            {
+                string emailData = "";
+                foreach (CustomConnection customConnection in emailList)
+                {
+                    string row = DepartureStation + "|" + ArrivalStation + "|" + customConnection.Time + "|" + customConnection.DeparturePlatform + "|" + customConnection.ArrivalPlatform + "|" + customConnection.Duration + "|" + customConnection.Date + "/";
+                    emailData += row;
+                }
+                
+                Form2 form = new Form2(emailData);
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte suchen Sie zuerst nach einer Verbindung");
             }
         }
     }
