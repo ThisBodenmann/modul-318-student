@@ -22,7 +22,7 @@ namespace SwissTransportGUI
 
                 if (possibleStationsStart.StationList.Count != 0 && possibleStationsDestination.StationList.Count != 0)
                 {
-                    Connections possibleConnections = transport.GetConnections(destinationComboBox.Text, startComboBox.Text, Convert.ToInt32(resultNumericUpDown.Value), dateTimePicker.Value, timeDateTimePicker.Value);
+                    Connections possibleConnections = transport.GetConnectionsByTime(destinationComboBox.Text, startComboBox.Text, Convert.ToInt32(resultNumericUpDown.Value), dateTimePicker.Value, timeDateTimePicker.Value);
 
                     List<CustomConnection> connectionList = new List<CustomConnection>();
                     connectionList.Clear();
@@ -86,14 +86,12 @@ namespace SwissTransportGUI
 
         private void TakeMeHomeButtonClick(object sender, EventArgs e)
         {
-            if (homeStation != "")
-            {
-                startComboBox.Text = homeStation;
-            }
-            else
+            if (homeStation == "")
             {
                 homeStation = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die gewünschte Station ein.", "TakeMeHome", "gewünschte Station", -1, -1);
+                
             }
+            destinationComboBox.Text = homeStation;
         }
 
         private void stationSearchButtonClick(object sender, EventArgs e)
@@ -130,8 +128,16 @@ namespace SwissTransportGUI
         {
             if (departureBoardComboBox.Text != "")
             {
-                Station station = transport.GetStations(departureBoardComboBox.Text).StationList.First();
-                Process.Start(new ProcessStartInfo { FileName = @"https://www.google.com/maps/search/?api=1&query=" + station.Coordinate.XCoordinate.ToString()!.Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString()!.Replace(",", "."), UseShellExecute = true });
+                Stations possibleStations = transport.GetStations(departureBoardComboBox.Text);
+                if (possibleStations.StationList.Count != 0)
+                {
+                    Station station = transport.GetStations(departureBoardComboBox.Text).StationList.First();
+                    Process.Start(new ProcessStartInfo { FileName = @"https://www.google.com/maps/search/?api=1&query=" + station.Coordinate.XCoordinate.ToString()!.Replace(",", ".") + "," + station.Coordinate.YCoordinate.ToString()!.Replace(",", "."), UseShellExecute = true });
+                }
+                else
+                {
+                    MessageBox.Show("Bitte geben Sie eine valide Station an!");
+                }
             }
             else
             {

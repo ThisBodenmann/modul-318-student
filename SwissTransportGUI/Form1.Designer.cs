@@ -306,6 +306,7 @@
             // 
             // mapGroupBox
             // 
+            this.mapGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mapGroupBox.Controls.Add(this.mapShowButton);
             this.mapGroupBox.Location = new System.Drawing.Point(1047, 73);
             this.mapGroupBox.Name = "mapGroupBox";
@@ -326,6 +327,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.departureBoardDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(19, 315);
             this.groupBox2.Name = "groupBox2";
@@ -443,6 +445,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.Controls.Add(this.stationDataGridView);
             this.groupBox3.Location = new System.Drawing.Point(19, 315);
             this.groupBox3.Name = "groupBox3";
