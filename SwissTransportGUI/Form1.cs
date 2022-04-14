@@ -23,6 +23,78 @@ namespace SwissTransportGUI
             UpdateComboBox(null!, null!);
         }
 
+        private void UpdateComboBox(object sender, EventArgs e)
+        {
+            if (destinationComboBox.Text != "" && startComboBox.Text != "")
+            {
+                searchButton.Enabled = true;
+            }
+            else
+            {
+                searchButton.Enabled = false;
+            }
+
+            if (departureBoardComboBox.Text != "")
+            {
+                departureBoardSearchButton.Enabled = true;
+            }
+            else
+            {
+                departureBoardSearchButton.Enabled = false;
+            }
+
+            if (searchStationComboBox.Text != "")
+            {
+                stationSearchButton.Enabled = true;
+            }
+            else
+            {
+                stationSearchButton.Enabled = false;
+            }
+        }
+
+        private void MainTabControlSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mainTabControl.SelectedTab == connectionTab)
+            {
+                searchGroupBox.TabIndex = 1;
+                startGroupBox.TabIndex = 1;
+                destinationGroupBox.TabIndex = 2;
+                takeMeHomeGroupBox.TabIndex = 3;
+                amountGroupBox.TabIndex = 4;
+                shareGroupBox.TabIndex = 5;
+                timeGroupBox.TabIndex = 6;
+                dateGroupBox.TabIndex = 7;
+
+                startComboBox.TabIndex = 1;
+                destinationComboBox.TabIndex = 2;
+                takeMeHomeButton.TabIndex = 3;
+                resultNumericUpDown.TabIndex = 4;
+                shareButton.TabIndex = 5;
+                timeDateTimePicker.TabIndex = 6;
+                dateTimePicker.TabIndex = 7;
+
+                this.AcceptButton = searchButton;
+            }
+            else if (mainTabControl.SelectedTab == departureTab)
+            {
+                departureSearchGroupBox.TabIndex = 1;
+                departureEnterGroupBox.TabIndex = 1;
+                mapGroupBox.TabIndex = 2;
+                mapShowButton.TabIndex = 2;
+
+                this.AcceptButton = departureBoardSearchButton;
+            }
+            else
+            {
+                stationSearchGroupBox.TabIndex = 1;
+                stationSearchEnterGroupBox.TabIndex = 1;
+                searchStationComboBox.TabIndex = 1;
+
+                this.AcceptButton = stationSearchButton;
+            }
+        }
+
         //----- ButtonClicks
         private void SearchButtonClick(object sender, EventArgs e)
         {
@@ -174,78 +246,6 @@ namespace SwissTransportGUI
             else
             {
                 MessageBox.Show("Bitte suchen Sie zuerst nach einer Verbindung");
-            }
-        }
-
-        private void UpdateComboBox(object sender, EventArgs e)
-        {
-            if (destinationComboBox.Text != "" && startComboBox.Text != "")
-            {
-                searchButton.Enabled = true;
-            }
-            else
-            {
-                searchButton.Enabled = false;
-            }
-
-            if (departureBoardComboBox.Text != "")
-            {
-                departureBoardSearchButton.Enabled = true;
-            }
-            else
-            {
-                departureBoardSearchButton.Enabled = false;
-            }
-
-            if (searchStationComboBox.Text != "")
-            {
-                stationSearchButton.Enabled = true;
-            }
-            else
-            {
-                stationSearchButton.Enabled = false;
-            }
-        }
-
-        private void MainTabControlSelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (mainTabControl.SelectedTab == connectionTab)
-            {
-                searchGroupBox.TabIndex = 1;
-                startGroupBox.TabIndex = 1;
-                destinationGroupBox.TabIndex = 2;
-                takeMeHomeGroupBox.TabIndex = 3;
-                amountGroupBox.TabIndex = 4;
-                shareGroupBox.TabIndex = 5;
-                timeGroupBox.TabIndex = 6;
-                dateGroupBox.TabIndex = 7;
-
-                startComboBox.TabIndex = 1;
-                destinationComboBox.TabIndex = 2;
-                takeMeHomeButton.TabIndex = 3;
-                resultNumericUpDown.TabIndex = 4;
-                shareButton.TabIndex = 5;
-                timeDateTimePicker.TabIndex = 6;
-                dateTimePicker.TabIndex = 7;
-
-                this.AcceptButton = searchButton;
-            }
-            else if (mainTabControl.SelectedTab == departureTab)
-            {
-                departureSearchGroupBox.TabIndex = 1;
-                departureEnterGroupBox.TabIndex = 1;
-                mapGroupBox.TabIndex = 2;
-                mapShowButton.TabIndex = 2;
-
-                this.AcceptButton = departureBoardSearchButton;
-            }
-            else
-            {
-                stationSearchGroupBox.TabIndex = 1;
-                stationSearchEnterGroupBox.TabIndex = 1;
-                searchStationComboBox.TabIndex = 1;
-
-                this.AcceptButton = stationSearchButton;
             }
         }
     }

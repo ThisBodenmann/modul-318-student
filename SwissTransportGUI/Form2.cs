@@ -78,5 +78,10 @@ namespace SwissTransportGUI
                 emailSendButton.Enabled = false;
             }
         }
+
+        private void closeButtonClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

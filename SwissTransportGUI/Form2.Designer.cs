@@ -36,6 +36,7 @@
             this.emailEnterGroupBox = new System.Windows.Forms.GroupBox();
             this.emailEnterTextBox = new System.Windows.Forms.TextBox();
             this.emailSendButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
             this.emailGroupBox.SuspendLayout();
             this.emailTextGroupBox.SuspendLayout();
             this.emailSubjectGroupBox.SuspendLayout();
@@ -44,6 +45,7 @@
             // 
             // emailGroupBox
             // 
+            this.emailGroupBox.Controls.Add(this.closeButton);
             this.emailGroupBox.Controls.Add(this.emailTextGroupBox);
             this.emailGroupBox.Controls.Add(this.emailSubjectGroupBox);
             this.emailGroupBox.Controls.Add(this.emailEnterGroupBox);
@@ -61,7 +63,7 @@
             this.emailTextGroupBox.Controls.Add(this.emailTextRichTextBox);
             this.emailTextGroupBox.Location = new System.Drawing.Point(7, 397);
             this.emailTextGroupBox.Name = "emailTextGroupBox";
-            this.emailTextGroupBox.Size = new System.Drawing.Size(1931, 639);
+            this.emailTextGroupBox.Size = new System.Drawing.Size(1729, 639);
             this.emailTextGroupBox.TabIndex = 3;
             this.emailTextGroupBox.TabStop = false;
             this.emailTextGroupBox.Text = "zusätzlichen Text angeben";
@@ -70,7 +72,7 @@
             // 
             this.emailTextRichTextBox.Location = new System.Drawing.Point(56, 91);
             this.emailTextRichTextBox.Name = "emailTextRichTextBox";
-            this.emailTextRichTextBox.Size = new System.Drawing.Size(1844, 512);
+            this.emailTextRichTextBox.Size = new System.Drawing.Size(1626, 512);
             this.emailTextRichTextBox.TabIndex = 3;
             this.emailTextRichTextBox.Text = "";
             // 
@@ -121,11 +123,22 @@
             this.emailSendButton.UseVisualStyleBackColor = true;
             this.emailSendButton.Click += new System.EventHandler(this.EmailSendButtonClick);
             // 
+            // closeButton
+            // 
+            this.closeButton.Location = new System.Drawing.Point(1837, 928);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(300, 72);
+            this.closeButton.TabIndex = 4;
+            this.closeButton.Text = "Schliessen";
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButtonClick);
+            // 
             // EmailForm
             // 
             this.AcceptButton = this.emailSendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.closeButton;
             this.ClientSize = new System.Drawing.Size(2264, 1197);
             this.Controls.Add(this.emailGroupBox);
             this.MaximumSize = new System.Drawing.Size(2300, 1300);
@@ -152,5 +165,6 @@
         private GroupBox emailEnterGroupBox;
         private TextBox emailEnterTextBox;
         private Button emailSendButton;
+        private Button closeButton;
     }
 }
