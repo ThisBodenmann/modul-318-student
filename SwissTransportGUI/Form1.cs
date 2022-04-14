@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 namespace SwissTransportGUI
 {
-    public partial class Form1 : Form
+    public partial class SwissTransport : Form
     {
-        public Form1()
+        public SwissTransport()
         {
             InitializeComponent();
         }
@@ -15,14 +15,14 @@ namespace SwissTransportGUI
 
         private void SearchButtonClick(object sender, EventArgs e)
         {
-            if (startComboBox.Text != null && destinationComboBox.Text != null)
+            if (destinationComboBox.Text != null && startComboBox.Text != null)
             {
-                Stations possibleStationsStart = transport.GetStations(startComboBox.Text);
-                Stations possibleStationsDestination = transport.GetStations(destinationComboBox.Text);
+                Stations possibleStationsStart = transport.GetStations(destinationComboBox.Text);
+                Stations possibleStationsDestination = transport.GetStations(startComboBox.Text);
 
                 if (possibleStationsStart.StationList.Count != 0 && possibleStationsDestination.StationList.Count != 0)
                 {
-                    Connections possibleConnections = transport.GetConnections(startComboBox.Text, destinationComboBox.Text, Convert.ToInt32(resultNumericUpDown.Value), dateTimePicker.Value, timeDateTimePicker.Value);
+                    Connections possibleConnections = transport.GetConnections(destinationComboBox.Text, startComboBox.Text, Convert.ToInt32(resultNumericUpDown.Value), dateTimePicker.Value, timeDateTimePicker.Value);
 
                     List<CustomConnection> connectionList = new List<CustomConnection>();
                     connectionList.Clear();
@@ -32,7 +32,7 @@ namespace SwissTransportGUI
                         string time = possibleConnection.From.Departure.ToString()!;
                         string[] departureTime = time.Split(' ').ToArray();
                         string[] duration = possibleConnection.Duration.Split('d').ToArray();
-                        CustomConnection customConnection = new CustomConnection(possibleConnection.From.Station.Name, possibleConnection.To.Station.Name, departureTime[0], departureTime[1], duration[1], possibleConnection.From.Platform, possibleConnection.To.Platform);
+                        CustomConnection customConnection = new CustomConnection(departureTime[1], possibleConnection.From.Platform, possibleConnection.To.Platform, duration[1], departureTime[0]);
                         connectionList.Add(customConnection);
                     }
                     connectionsDataGridView.DataSource = connectionList;
@@ -88,7 +88,7 @@ namespace SwissTransportGUI
         {
             if (homeStation != "")
             {
-                destinationComboBox.Text = homeStation;
+                startComboBox.Text = homeStation;
             }
             else
             {
@@ -126,10 +126,6 @@ namespace SwissTransportGUI
             }
         }
 
-        private void distanceSearchButtonClick(object sender, EventArgs e)
-        {
-            
-        }
         private void mapShowButtonClick(object sender, EventArgs e)
         {
             if (departureBoardComboBox.Text != "")
@@ -140,6 +136,81 @@ namespace SwissTransportGUI
             else
             {
                 MessageBox.Show("Bitte geben Sie eine valide Station an!");
+            }
+        }
+
+        private void updateComboBox(object sender, EventArgs e)
+        {
+            if (destinationComboBox.Text != "" && startComboBox.Text != "")
+            {
+                searchButton.Enabled = true;
+            }
+            else
+            {
+                searchButton.Enabled = false;
+            }
+
+            if (departureBoardComboBox.Text != "")
+            {
+                departureBoardSearchButton.Enabled = true;
+            }
+            else
+            {
+                departureBoardSearchButton.Enabled = false;
+            }
+
+            if (searchStationComboBox.Text != "")
+            {
+                stationSearchButton.Enabled = true;
+            }
+            else
+            {
+                stationSearchButton.Enabled = false;
+            }
+        }
+
+        private void FormLoad(object sender, EventArgs e)
+        {
+            updateComboBox(null!, null!);
+        }
+
+        private void mainTabControlSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (mainTabControl.SelectedTab == tabPage1)
+            {
+                searchGroupBox.TabIndex = 1;
+                startGroupBox.TabIndex = 1;
+                destinationGroupBox.TabIndex = 2;
+                takeMeHomeGroupBox.TabIndex = 3;
+                amountGroupBox.TabIndex = 4;
+                timeGroupBox.TabIndex = 5;
+                dateGroupBox.TabIndex = 6;
+
+                startComboBox.TabIndex = 1;
+                destinationComboBox.TabIndex = 2;
+                takeMeHomeButton.TabIndex = 3;
+                resultNumericUpDown.TabIndex = 4;
+                timeDateTimePicker.TabIndex = 5;
+                dateTimePicker.TabIndex = 6;
+
+                this.AcceptButton = searchButton;
+            }
+            else if (mainTabControl.SelectedTab == tabPage2)
+            {
+                departureSearchGroupBox.TabIndex = 1;
+                departureEnterGroupBox.TabIndex = 1;
+                mapGroupBox.TabIndex = 2;
+                mapShowButton.TabIndex = 2;
+
+                this.AcceptButton = departureBoardSearchButton;
+            }
+            else
+            {
+                stationSearchGroupBox.TabIndex = 1;
+                stationSearchEnterGroupBox.TabIndex = 1;
+                searchStationComboBox.TabIndex = 1;
+
+                this.AcceptButton = stationSearchButton;
             }
         }
     }

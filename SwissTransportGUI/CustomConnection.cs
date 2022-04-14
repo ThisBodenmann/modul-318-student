@@ -10,23 +10,33 @@ namespace SwissTransportGUI
 {
     internal class CustomConnection
     {
-        public string Start { get; set; }
-        public string Destination { get; set; }
-        public string Date { get; set; }
         public string Time { get; set; }
-        public string Duration { get; set; }
         public string DeparturePlatform { get; set; }
         public string ArrivalPlatform { get; set; }
+        public string Duration { get; set; }
+        public string Date { get; set; }
 
-        public CustomConnection(string start, string destination, string date, string time, string duration, string departurePlatform, string arrivalPlatform)
+        public CustomConnection(string time, string departurePlatform, string arrivalPlatform, string duration, string date)
         {
-            Start = start;
-            Destination = destination;
             Date = date;
             Time = time;
             Duration = duration;
-            DeparturePlatform = departurePlatform;
-            ArrivalPlatform = arrivalPlatform;
+            if (departurePlatform != null)
+            {
+                DeparturePlatform = departurePlatform;
+            }
+            else
+            {
+                DeparturePlatform = "-";
+            }
+            if (arrivalPlatform != null)
+            {
+                ArrivalPlatform = arrivalPlatform;
+            }
+            else
+            {
+                ArrivalPlatform = "-";
+            } 
         }
     }
 }
