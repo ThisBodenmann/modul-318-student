@@ -1,6 +1,6 @@
 ﻿namespace SwissTransportGUI
 {
-    partial class Form2
+    partial class EmailForm
     {
         /// <summary>
         /// Required designer variable.
@@ -90,6 +90,7 @@
             this.emailSubjectTextBox.Name = "emailSubjectTextBox";
             this.emailSubjectTextBox.Size = new System.Drawing.Size(400, 55);
             this.emailSubjectTextBox.TabIndex = 2;
+            this.emailSubjectTextBox.TextChanged += new System.EventHandler(this.CheckIfEmpty);
             // 
             // emailEnterGroupBox
             // 
@@ -107,6 +108,7 @@
             this.emailEnterTextBox.Name = "emailEnterTextBox";
             this.emailEnterTextBox.Size = new System.Drawing.Size(400, 55);
             this.emailEnterTextBox.TabIndex = 1;
+            this.emailEnterTextBox.TextChanged += new System.EventHandler(this.CheckIfEmpty);
             // 
             // emailSendButton
             // 
@@ -119,16 +121,17 @@
             this.emailSendButton.UseVisualStyleBackColor = true;
             this.emailSendButton.Click += new System.EventHandler(this.emailSendButtonClick);
             // 
-            // Form2
+            // EmailForm
             // 
+            this.AcceptButton = this.emailSendButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(20F, 48F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2264, 1197);
             this.Controls.Add(this.emailGroupBox);
             this.MaximumSize = new System.Drawing.Size(2300, 1300);
             this.MinimumSize = new System.Drawing.Size(2300, 1300);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "EmailForm";
+            this.Text = "Email";
             this.emailGroupBox.ResumeLayout(false);
             this.emailTextGroupBox.ResumeLayout(false);
             this.emailSubjectGroupBox.ResumeLayout(false);

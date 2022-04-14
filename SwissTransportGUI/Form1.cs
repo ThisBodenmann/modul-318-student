@@ -238,7 +238,7 @@ namespace SwissTransportGUI
                     emailData += row;
                 }
                 
-                Form2 form = new Form2(emailData);
+                EmailForm form = new EmailForm(emailData);
                 form.ShowDialog();
             }
             else

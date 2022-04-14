@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace SwissTransportGUI
 {
-    public partial class Form2 : Form
+    public partial class EmailForm : Form
     {
         string emailList;
-        public Form2(string emailList)
+        public EmailForm(string emailList)
         {
             InitializeComponent();
             this.emailList = emailList;
@@ -34,7 +34,7 @@ namespace SwissTransportGUI
                 }
                 else
                 {
-                    string addMail = emailEnterTextBox.Text;
+                    string emailAddress = emailEnterTextBox.Text;
                     string subject = emailSubjectTextBox.Text;
                     string body = emailTextRichTextBox.Text + "\n\n\n";
 
@@ -48,10 +48,9 @@ namespace SwissTransportGUI
                     SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
                     mail.From = new MailAddress("SwissTranslationProjekt@gmail.com");
-                    mail.To.Add(addMail);
+                    mail.To.Add(emailAddress);
                     mail.Subject = subject;
                     mail.Body = body;
-                    body +=
 
                     SmtpServer.Port = 587;
                     SmtpServer.Credentials = new System.Net.NetworkCredential("SwissTranslationProjekt@gmail.com", "swisstranslation_123");
@@ -66,6 +65,18 @@ namespace SwissTransportGUI
                 }
             }
             catch { }
+        }
+
+        private void CheckIfEmpty(object sender, EventArgs e)
+        {
+            if (emailEnterTextBox.Text != "" && emailSubjectTextBox.Text != "")
+            {
+                emailSendButton.Enabled = true;
+            }
+            else
+            {
+                emailSendButton.Enabled = false;
+            }
         }
     }
 }

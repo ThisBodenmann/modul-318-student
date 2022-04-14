@@ -30,6 +30,8 @@
         {
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.connectionTab = new System.Windows.Forms.TabPage();
+            this.shareGroupBox = new System.Windows.Forms.GroupBox();
+            this.shareButton = new System.Windows.Forms.Button();
             this.amountGroupBox = new System.Windows.Forms.GroupBox();
             this.resultNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.dateGroupBox = new System.Windows.Forms.GroupBox();
@@ -62,10 +64,9 @@
             this.stationSearchButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.stationDataGridView = new System.Windows.Forms.DataGridView();
-            this.shareGroupBox = new System.Windows.Forms.GroupBox();
-            this.shareButton = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.connectionTab.SuspendLayout();
+            this.shareGroupBox.SuspendLayout();
             this.amountGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultNumericUpDown)).BeginInit();
             this.dateGroupBox.SuspendLayout();
@@ -87,7 +88,6 @@
             this.stationSearchEnterGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.stationDataGridView)).BeginInit();
-            this.shareGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainTabControl
@@ -121,6 +121,26 @@
             this.connectionTab.TabIndex = 0;
             this.connectionTab.Text = "Verbindungen";
             this.connectionTab.UseVisualStyleBackColor = true;
+            // 
+            // shareGroupBox
+            // 
+            this.shareGroupBox.Controls.Add(this.shareButton);
+            this.shareGroupBox.Location = new System.Drawing.Point(1108, 258);
+            this.shareGroupBox.Name = "shareGroupBox";
+            this.shareGroupBox.Size = new System.Drawing.Size(411, 166);
+            this.shareGroupBox.TabIndex = 11;
+            this.shareGroupBox.TabStop = false;
+            this.shareGroupBox.Text = "Verbindung Teilen";
+            // 
+            // shareButton
+            // 
+            this.shareButton.Location = new System.Drawing.Point(56, 64);
+            this.shareButton.Name = "shareButton";
+            this.shareButton.Size = new System.Drawing.Size(300, 72);
+            this.shareButton.TabIndex = 0;
+            this.shareButton.Text = "Teilen";
+            this.shareButton.UseVisualStyleBackColor = true;
+            this.shareButton.Click += new System.EventHandler(this.ShareButtonClick);
             // 
             // amountGroupBox
             // 
@@ -219,7 +239,7 @@
             this.departureGroupBox.Size = new System.Drawing.Size(1500, 600);
             this.departureGroupBox.TabIndex = 5;
             this.departureGroupBox.TabStop = false;
-            this.departureGroupBox.Text = "Abfahrtstafel";
+            this.departureGroupBox.Text = "Verbindungen";
             // 
             // connectionsDataGridView
             // 
@@ -469,26 +489,6 @@
             this.stationDataGridView.TabIndex = 4;
             this.stationDataGridView.TabStop = false;
             // 
-            // shareGroupBox
-            // 
-            this.shareGroupBox.Controls.Add(this.shareButton);
-            this.shareGroupBox.Location = new System.Drawing.Point(1108, 258);
-            this.shareGroupBox.Name = "shareGroupBox";
-            this.shareGroupBox.Size = new System.Drawing.Size(411, 166);
-            this.shareGroupBox.TabIndex = 11;
-            this.shareGroupBox.TabStop = false;
-            this.shareGroupBox.Text = "Teilen";
-            // 
-            // shareButton
-            // 
-            this.shareButton.Location = new System.Drawing.Point(56, 64);
-            this.shareButton.Name = "shareButton";
-            this.shareButton.Size = new System.Drawing.Size(300, 72);
-            this.shareButton.TabIndex = 0;
-            this.shareButton.Text = "Teilen";
-            this.shareButton.UseVisualStyleBackColor = true;
-            this.shareButton.Click += new System.EventHandler(this.ShareButtonClick);
-            // 
             // SwissTransport
             // 
             this.AcceptButton = this.searchButton;
@@ -503,6 +503,7 @@
             this.Load += new System.EventHandler(this.FormLoad);
             this.mainTabControl.ResumeLayout(false);
             this.connectionTab.ResumeLayout(false);
+            this.shareGroupBox.ResumeLayout(false);
             this.amountGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.resultNumericUpDown)).EndInit();
             this.dateGroupBox.ResumeLayout(false);
@@ -524,7 +525,6 @@
             this.stationSearchEnterGroupBox.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.stationDataGridView)).EndInit();
-            this.shareGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
